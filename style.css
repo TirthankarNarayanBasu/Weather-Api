@@ -1,26 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial;
-    text-align: center;
-    background: lightblue;
+    min-height: 100vh;
+    margin: 0;
+    color: #f5f8ff;
+    font-family: "DM Sans", sans-serif;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(80, 193, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 85% 85%, rgba(107, 92, 255, 0.25), transparent 30%),
+        #0d1730;
 }
+
+.app-shell {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 32px 20px;
+}
+
+.ambient-glow {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(152, 206, 255, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 0 40px rgba(152, 206, 255, 0.025), 0 0 0 80px rgba(152, 206, 255, 0.018);
+}
+
 .box {
-    background: yellowgreen;
-    width: 300px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    width: min(100%, 470px);
+    padding: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(33, 54, 91, 0.86), rgba(20, 32, 63, 0.92));
+    box-shadow: 0 24px 70px rgba(3, 10, 30, 0.42), inset 0 1px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
 }
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #92d8ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.sun-icon {
+    color: #ffd26a;
+    font-size: 1.25rem;
+}
+
+h1 {
+    margin: 18px 0 12px;
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 3.8rem);
+    letter-spacing: -0.07em;
+    line-height: 0.98;
+}
+
+h1 span {
+    color: #8edaff;
+}
+
+.intro {
+    max-width: 290px;
+    margin: 0 0 30px;
+    color: #a7b9d7;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.search-row {
+    display: flex;
+    gap: 10px;
+}
+
 input {
-    padding: 10px;
-    width: 170px;
+    min-width: 0;
+    width: 100%;
+    padding: 15px 17px;
+    border: 1px solid rgba(191, 220, 255, 0.18);
+    border-radius: 12px;
+    outline: none;
+    color: #fff;
+    font: inherit;
+    background: rgba(3, 12, 33, 0.42);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+input::placeholder {
+    color: #7890b5;
+}
+
+input:focus {
+    border-color: #85d9ff;
+    box-shadow: 0 0 0 3px rgba(133, 217, 255, 0.14);
+}
+
 button {
-    padding: 10px;
-    background: #60ccf0;
-    color: white;
-    border: none;
+    flex-shrink: 0;
+    padding: 0 19px;
+    border: 0;
+    border-radius: 12px;
+    color: #09203c;
+    font: 700 0.9rem "DM Sans", sans-serif;
+    background: linear-gradient(135deg, #a4e7ff, #65c6f4);
     cursor: pointer;
+    box-shadow: 0 8px 18px rgba(76, 182, 232, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+button span {
+    margin-left: 5px;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 11px 22px rgba(76, 182, 232, 0.32);
+}
+
+.weather-result {
+    min-height: 170px;
+    margin-top: 30px;
+    padding: 22px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 19px;
+    background: rgba(7, 18, 45, 0.32);
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-pin {
+    color: #ffd26a;
+    font-size: 0.8rem;
+}
+
+h2 {
+    margin: 0;
+    color: #b7c9e6;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.temperature {
+    margin-top: 10px;
+    color: #fff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.07em;
+}
+
+.description {
+    margin: 0;
+    color: #8edaff;
+    font-size: 0.95rem;
+    text-transform: capitalize;
+}
+
 #error {
-    color: red;
+    min-height: 22px;
+    margin: 14px 0 0;
+    color: #ff9aab;
+    font-size: 0.9rem;
+}
+
+.tip {
+    margin: 10px 0 0;
+    color: #6f86aa;
+    font-size: 0.76rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    color: #6f86aa;
+    font-size: 0.72rem;
+}
+
+footer span {
+    margin: 0 5px;
+    color: #85d9ff;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 520px) {
+    .box {
+        padding: 30px 22px;
+        border-radius: 22px;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+
+    button {
+        min-height: 50px;
+    }
+
+    footer {
+        display: none;
+    }
 }
