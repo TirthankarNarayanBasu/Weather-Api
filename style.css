@@ -69,8 +69,14 @@ h1 {
     line-height: 0.98;
 }
 
-h1 span {
-    color: #8edaff;
+
+
+.intro {
+    max-width: 290px;
+    margin: 0 0 30px;
+    color: #a7b9d7;
+    font-size: 0.98rem;
+    line-height: 1.6;
 }
 
 .search-row {
@@ -173,11 +179,22 @@ h2 {
     font-size: 0.9rem;
 }
 
+.tip {
+    margin: 10px 0 0;
+    color: #6f86aa;
+    font-size: 0.76rem;
+}
+
 footer {
     position: absolute;
     bottom: 20px;
     color: #6f86aa;
     font-size: 0.72rem;
+}
+
+footer span {
+    margin: 0 5px;
+    color: #85d9ff;
 }
 
 .sr-only {
